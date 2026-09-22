@@ -1,9 +1,9 @@
 #include "robo_hardware2.h"
 
-#define DIVISOR_BRANCO_PRETO_MAIS_ESQ 80
-#define DIVISOR_BRANCO_PRETO_MAIS_DIR 70
-#define DIVISOR_BRANCO_PRETO_DIR 65
-#define DIVISOR_BRANCO_PRETO_ESQ 65
+#define DIVISOR_BRANCO_PRETO_MAIS_ESQ 72
+#define DIVISOR_BRANCO_PRETO_MAIS_DIR 65
+#define DIVISOR_BRANCO_PRETO_DIR 60
+#define DIVISOR_BRANCO_PRETO_ESQ 60
 
 class SensorLinha
 {
@@ -53,6 +53,18 @@ public:
     ~SensorLinha();
     inline bool branco() { return (bbbb()); }
     inline bool preto() { return (pppp()); }
+    inline bool ext_branco() { return (bppb()); }
+    inline bool maisEsq_preto() { return pbbb(); }
+    inline bool maisEsq_branco() { return bppp(); }
+    inline bool ladoEsq_preto() { return ppbb(); }
+    inline bool Esq_preto() { return bpbb(); }
+    inline bool maisDir_branco() { return pppb(); }
+    inline bool ladoDir_preto() { return bbpp(); }
+    inline bool Dir_preto() { return bbpb(); }
+    inline bool maisDir_preto() { return bbbp(); }
+    
+
+    
 
     void lerSensor();
 };
