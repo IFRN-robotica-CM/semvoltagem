@@ -1,9 +1,9 @@
 #include "robo_hardware2.h"
 
-#define DIVISOR_BRANCO_PRETO_MAIS_ESQ 72
-#define DIVISOR_BRANCO_PRETO_MAIS_DIR 65
-#define DIVISOR_BRANCO_PRETO_DIR 60
-#define DIVISOR_BRANCO_PRETO_ESQ 60
+#define DIVISOR_BRANCO_PRETO_MAIS_ESQ 2
+#define DIVISOR_BRANCO_PRETO_MAIS_DIR 1
+#define DIVISOR_BRANCO_PRETO_DIR 4
+#define DIVISOR_BRANCO_PRETO_ESQ 2
 
 class SensorLinha
 {
@@ -14,7 +14,7 @@ private:
     float valorSensorMaisDir;
     float valorSensorMaisEsq;
     float valorSensorFrontal;
-
+public:
     bool pppp() {
     return (valorSensorDir < DIVISOR_BRANCO_PRETO_DIR && valorSensorEsq < DIVISOR_BRANCO_PRETO_ESQ && valorSensorMaisEsq < DIVISOR_BRANCO_PRETO_MAIS_ESQ && valorSensorMaisDir < DIVISOR_BRANCO_PRETO_MAIS_DIR);
     }
@@ -48,7 +48,7 @@ private:
     bool bbbp() {
     return (valorSensorDir > DIVISOR_BRANCO_PRETO_DIR && valorSensorEsq > DIVISOR_BRANCO_PRETO_ESQ && valorSensorMaisEsq > DIVISOR_BRANCO_PRETO_MAIS_ESQ && valorSensorMaisDir < DIVISOR_BRANCO_PRETO_MAIS_DIR);
     }
-public:
+
     SensorLinha(/* args */);
     ~SensorLinha();
     inline bool branco() { return (bbbb()); }
@@ -62,10 +62,8 @@ public:
     inline bool ladoDir_preto() { return bbpp(); }
     inline bool Dir_preto() { return bbpb(); }
     inline bool maisDir_preto() { return bbbp(); }
-    
-
-    
 
     void lerSensor();
+    void printValores();
 };
 
