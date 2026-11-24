@@ -1,5 +1,6 @@
 #include "SensorLinha.h"
 #include "SensorLaser.h"
+#include "Sonar.h"
 
 SensorLinha::SensorLinha(/* args */)
 {
@@ -15,6 +16,14 @@ SensorLaser::SensorLaser(/* args */)
 }
 
 SensorLaser::~SensorLaser()
+{
+}
+
+Sonar::Sonar(/* args */)
+{
+}
+
+Sonar::~Sonar()
 {
 }
 
@@ -41,7 +50,6 @@ void SensorLinha::  printValores(){
     Serial.print("mais dir: ");
     Serial.print(valorSensorMaisDir);
     Serial.println("; ");
-    Serial.println(analogRead(A8));
 }
 
 void SensorLaser::lerLaser() {
@@ -52,4 +60,14 @@ void SensorLaser::lerLaser() {
 void SensorLaser::printValores(){
     Serial.println(ValorSensorLaser);
     delay(50);
+}
+
+void Sonar::lerSonar() {
+    ValorSonar = robo.lerSensorSonarFrontal();
+    delay(100);
+}
+
+void Sonar::printValor() {
+    Serial.println(ValorSonar);
+    delay(100);
 }

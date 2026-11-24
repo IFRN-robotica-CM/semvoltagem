@@ -91,16 +91,19 @@ void Estrategia:: AtravessarObstaculo(){
 
 void Estrategia::iniciar() {
     Serial.begin(9600);
-    robo.configurar(true, false);
+    robo.configurar(false, false);
 }
 
 void Estrategia::executar() {
     // implementar condição para executar estrategias diferentes em determinadas condições
+    // delay(500);
+    movimento.frente();
+    // sensorLinha.printValores();
 
-    sensorLaser.lerLaser();
-    if (sensorLaser.valorLaser() > 80.00 ) {
-        SeguirLinha();
-    } else if (sensorLaser.valorLaser() > 0.00) {
-        AtravessarObstaculo();
-    }
+    // sensorLaser.lerLaser();
+    // if (sensorLaser.valorLaser() > 80.00 ) {
+    //     SeguirLinha();
+    // } else if (sensorLaser.valorLaser() > 0.00) {
+    //     AtravessarObstaculo();
+    // }
 }
