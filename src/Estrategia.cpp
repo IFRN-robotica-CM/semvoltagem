@@ -29,18 +29,8 @@ void Estrategia::SeguirLinha() {
         movimento.direita_forte();
         robo.sinalizacao.ligarLedAzul();
     } else if (sensorLinha.maisEsq_branco()) {
-        movimento.parar();
-        delay(100);
-        movimento.frente();
-        delay(50);
-        
         movimento.direita_forte();
     } else if (sensorLinha.maisDir_branco()) {
-        movimento.parar();
-        delay(100);
-        movimento.frente();
-        delay(50);
-
         movimento.esquerda_forte();
     } else if (sensorLinha.preto()) {
         // lembrar de implementar a estrategia da encruzilhada
@@ -97,7 +87,7 @@ void Estrategia::iniciar() {
 void Estrategia::executar() {
     // implementar condição para executar estrategias diferentes em determinadas condições
     // delay(500);
-    movimento.frente();
+    SeguirLinha();
     // sensorLinha.printValores();
 
     // sensorLaser.lerLaser();
